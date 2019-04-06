@@ -1,0 +1,7 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+assembly="DocumentBase"
+namespace="DocumentBase.Models">
+ <sql-query name="FileSaveProcedure">   
+        exec FileSaveProcedure @authorId=:authorId, @changedate=:changedate, @Name=:Name, @BinaryFile=:BinaryFile
+    </sql-query> 
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+﻿<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+@Html.Partial("PartialView")
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>   
+    
+    <h1>
+        @*@Html.ActionLink("Login", "Login", "Login")*@          
+            <center>
+                <a href="@Url.Action("Login", "Login", "Login")" class="btn btn-dark btn-lg">
+                    <i class="icon-pencil icon-white"></i>
+                    <span>
+                        <strong>Login</strong>
+                    </span>
+                </a>
+            </center>  
+    </h1>
+</div>

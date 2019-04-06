@@ -1,0 +1,75 @@
+﻿@model IEnumerable<DocumentBase.Models.Document>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+@helper Function(string str, int length)
+{
+    if (str.Length <= length)
+    {
+        @str
+    }
+    else
+    {
+        @str.Substring(0, length)<text>...</text>
+    }
+}
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Html.Partial("PartialLoggedin")
+    <title>Search</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <p>
+            Search: @Html.TextBox("SearchString")
+            <input type="submit" value="Search" class="btn btn-dark btn-sm" />
+        </p>
+    }
+    <table class="table">
+        <tr style="font-size:x-large">
+            <th>
+                @Html.ActionLink("Sort Name", "Search", new { sortOrder = ViewBag.NameSortParm }, new { @class = "btn btn-dark btn-sm" })
+            </th>
+            <th>
+                @Html.ActionLink("SortDate", "Search", new { sortOrder = ViewBag.DateSortParm }, new { @class = "btn btn-dark btn-sm" })
+            </th>
+            <th>
+                @Html.ActionLink("Sort Autor", "Search", new { sortOrder = ViewBag.AutorSortParm }, new { @class = "btn btn-dark btn-sm" })
+            </th>
+            <th>
+                @Html.DisplayText("Binary File")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+            <tr style="font-size:large">
+                <td >
+                    @Function(item.Name, 30)
+                </td>
+                <td >
+                    @Html.DisplayFor(modelItem => item.ChangeDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorId)
+                </td>
+                <td >
+                    @Html.ActionLink("Open", "Open", new { path = item.BinaryFile }, new { @class = "btn btn-dark btn-sm" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <p>
+        @Html.ActionLink("New Document", "Create", null, new { @class = "btn btn-dark btn-lg" })
+    </p>
+</body>
+</html>

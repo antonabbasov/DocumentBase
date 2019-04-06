@@ -1,0 +1,56 @@
+﻿@model DocumentBase.Models.Document
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+@Html.Partial("PartialLoggedin")
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Creating new document</h2>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <center>           
+            <div class="editor-label">
+                @Html.LabelFor(a => a.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(a => a.Name)
+                @Html.ValidationMessageFor(a => a.Name)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(a => a.ChangeDate)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(a => a.ChangeDate)
+                @Html.ValidationMessageFor(a => a.ChangeDate)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(a => a.BinaryFile)
+            </div>
+            <input type="file" name="fileupload" value="fileupload" id="fileupload" multiple="multiple" />
+            <p>
+                <input type="submit" value="Create" class="btn btn-dark" />
+            </p>
+                </center>
+        </fieldset>
+    }
+</body>
+</html>
+
+<div>
+    <center>
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-sm" })
+    </center>
+</div>

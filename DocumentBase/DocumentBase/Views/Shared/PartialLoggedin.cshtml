@@ -1,0 +1,46 @@
+﻿<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Document Storage</title>
+
+</head>
+<body>
+    <div style="background-color:forestgreen; width:auto; font-size: 40px">
+        <p>
+            <b>Document Base for @Session["Login"].ToString()</b> <i class="icon-pencil icon-white"></i>
+        </p>
+        <a href="@Url.Action("Index", "Document", Model)" class="btn btn-dark btn-md">
+            <i class="icon-pencil icon-white"></i>
+            <span>
+                <strong>Your files</strong>
+            </span>
+        </a>
+        <a href="@Url.Action("IndexAll", "Document", Model)" class="btn btn-dark btn-md">
+            <i class="icon-pencil icon-white"></i>
+            <span>
+                <strong>Inspect all files</strong>
+            </span>
+        </a>
+        <a href="@Url.Action("Search", "Document", Model)" class="btn btn-dark btn-md">
+            <i class="icon-pencil icon-white"></i>
+            <span>
+                <strong>Work with files</strong>
+            </span>
+        </a>    
+        <a href="@Url.Action("Login", "Login", Model)" cla class="btn btn-dark btn-md">
+            <i class="icon-pencil icon-white"></i>
+            <span>
+                <strong>Logout</strong>
+            </span>
+        </a>                         
+</div>
+</body>
+</html>

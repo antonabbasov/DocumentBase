@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+ 
+<appSettings>
+  <add key="LicenseKey" value="B7CA-6EC9-0544-649C-2C48-E5CB-1EA2-B48A"  xdt:Transform="Remove" xdt:Locator="Match(key)" />
+  <add key="DocumentCache" value="memory" xdt:Transform="Remove" xdt:Locator="Match(key)" />
+</appSettings>
+
+<system.web>
+<httpHandlers> 
+  <add verb="*" path="DocumentHandler.axd" type="Gnostice.Documents.WebHandler.DocumentHandler, Gnostice.Documents.WebHandler" xdt:Transform="Remove" xdt:Locator="Match(path)" /> 
+</httpHandlers>
+</system.web>
+
+<system.webServer>
+<handlers>
+    <add name="XDocumentImage" verb="*" path="DocumentHandler.axd" type="Gnostice.Documents.WebHandler.DocumentHandler, Gnostice.Documents.WebHandler" xdt:Transform="Remove" xdt:Locator="Match(path)" />
+</handlers>	
+</system.webServer>
+</configuration>	

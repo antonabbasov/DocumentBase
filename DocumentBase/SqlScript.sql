@@ -1,0 +1,12 @@
+INSERT INTO [User] (Login, Password) VALUES ('JaimeLannister', 'Cersei');
+INSERT INTO [User] (Login, Password) VALUES ('Dayeneris', 'snow');
+INSERT INTO [User] (Login, Password) VALUES ('JorahMarmont', 'dragonqueen');
+INSERT INTO [User] (Login, Password) VALUES ('AntonAbbasov', 'molodec');
+INSERT INTO [User] (Login, Password) VALUES ('SamTarly', 'fat');
+INSERT INTO [User] (Login, Password) VALUES ('TyrionLannister', 'TheImp');
+INSERT INTO [User] (Login, Password) VALUES ('SansaStark', 'Ramsey');
+INSERT INTO [User] (Login, Password) VALUES ('JonSnow', 'dayeneris');
+INSERT INTO [User] (Login, Password) VALUES ('AryaStark', 'noone');
+INSERT INTO [User] (Login, Password) VALUES ('KhalDrogo', 'horserider');
+INSERT INTO [User] (Login, Password) VALUES ('GeraltOfRivia', 'YenneferOfVengerberg');
+INSERT INTO [User] (Login, Password) VALUES ('YenneferOfVengerberg', 'geralt');

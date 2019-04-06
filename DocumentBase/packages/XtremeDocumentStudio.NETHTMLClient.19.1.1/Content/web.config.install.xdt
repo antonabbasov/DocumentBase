@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+
+  <appSettings xdt:Transform="InsertIfMissing">
+  </appSettings>
+  
+  <appSettings>
+    <add key="LicenseKey" value="B7CA-6EC9-0544-649C-2C48-E5CB-1EA2-B48A"  xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)"/>
+    <add key="DocumentCache" value="memory" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+  </appSettings>
+
+<system.web>
+<httpHandlers xdt:Transform="InsertIfMissing"> 
+</httpHandlers>
+</system.web>
+
+<system.web>
+<httpHandlers> 
+    <add verb="*" path="DocumentHandler.axd" type="Gnostice.Documents.WebHandler.DocumentHandler, Gnostice.Documents.WebHandler" xdt:Transform="InsertIfMissing" xdt:Locator="Match(path)" /> 
+</httpHandlers>
+</system.web>
+
+<system.webServer xdt:Transform="InsertIfMissing">
+</system.webServer>
+
+<system.webServer>
+    <validation validateIntegratedModeConfiguration="false" xdt:Transform="InsertIfMissing" />
+</system.webServer>
+	 
+<system.webServer>
+<handlers xdt:Transform="InsertIfMissing">
+</handlers>
+</system.webServer>
+
+<system.webServer>
+<handlers>
+    <add name="XDocumentImage" verb="*" path="DocumentHandler.axd" type="Gnostice.Documents.WebHandler.DocumentHandler, Gnostice.Documents.WebHandler" xdt:Transform="InsertIfMissing" xdt:Locator="Match(path)" />
+</handlers>	
+</system.webServer>
+	
+</configuration>	

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true" assembly="DocumentBase" namespace="DocumentBase.Models">
+  <class name="User" table="[User]" dynamic-update="true" > 
+    <cache usage="read-write"/>
+    <id name="id" column="id" type="long">
+      <generator class="native" />
+    </id>
+    <property name="Login"  />
+    <property name="Password" />
+  </class>
+</hibernate-mapping>-->
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+assembly="DocumentBase"
+namespace="DocumentBase.Models">
+  <class name="User" table="[User]">
+    <id name="id" column="id" type="long">
+      <generator class="native" />
+    </id>
+    <property name="Login" not-null="true" />
+    <property name="Password" not-null="true"/>
+    <list name="Documents" cascade="all-delete-orphan" lazy="false">
+      <key column="AuthorId"/>
+      <index column="id"/>
+      <one-to-many class="Document"                  
+                   />
+    </list>
+  </class>
+</hibernate-mapping>
