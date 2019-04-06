@@ -15,9 +15,6 @@ namespace DocumentBase.Controllers
 {
     public class LoginController : Controller
     {
-        //
-        // GET: /Login/
-
         public ActionResult Login()
         {
             return View();
@@ -33,11 +30,11 @@ namespace DocumentBase.Controllers
                 
                 using (ISession session = NhibernateSession.OpenSession())
                 {                  
-                    user = session.Query<User>().Where(a => a.Login.Equals(objUser.Login) && a.Password.Equals(objUser.Password)).FirstOrDefault();                    
+                    user = session.Query<User>().Where(a => a.login.Equals(objUser.login) && a.password.Equals(objUser.password)).FirstOrDefault();                    
                     if (user != null)
                     {
                         Session["id"] = user.id.ToString();
-                        Session["Login"] = user.Login.ToString();                      
+                        Session["Login"] = user.login.ToString();                      
                         ViewBag.Message = user;
 
                         return RedirectToAction("UserDashBoard", user);

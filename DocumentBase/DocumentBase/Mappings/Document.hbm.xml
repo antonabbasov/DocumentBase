@@ -20,9 +20,9 @@ namespace="DocumentBase.Models">
     <id name="id" column="id" type="long">
       <generator class="native" />
     </id>
-    <property name="AuthorId" not-null="true" />
-    <property name="Name" not-null="true" />
-    <property name="BinaryFile" not-null="true" />
-    <property name="ChangeDate" not-null="true" />
+    <property name="authorId" not-null="true" />
+    <property name="name" not-null="true" />
+    <property name="binaryFile" not-null="true" />
+    <property name="changeDate" not-null="true" />
   </class>
 </hibernate-mapping>

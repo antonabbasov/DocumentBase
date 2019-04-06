@@ -16,10 +16,7 @@ using System.Diagnostics;
 namespace DocumentBase.Controllers
 {
     public class DocumentController : Controller
-    {
-        //
-        // GET: /Document/
-
+    {      
         public ActionResult IndexAll()
         {
             IList<Document> documents;
@@ -40,25 +37,23 @@ namespace DocumentBase.Controllers
 
             using (ISession session = NhibernateSession.OpenSession())
             {
-                documents = session.Query<Document>().Where(a => a.AuthorId == user.id).ToList();
+                documents = session.Query<Document>().Where(a => a.authorId == user.id).ToList();
             }
 
             return View(documents);
         }
-
-        // GET: Document/Create
+       
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Document/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Document document, IEnumerable<HttpPostedFileBase> fileupload)
         {          
                 string path = String.Empty;
-                document.AuthorId = long.Parse(Session["id"].ToString());
+                document.authorId = long.Parse(Session["id"].ToString());
 
                 using (ISession session = NhibernateSession.OpenSession())
                 {
@@ -67,12 +62,12 @@ namespace DocumentBase.Controllers
                         if (file != null && file.ContentLength > 0)
                         {
                             var extention = System.IO.Path.GetExtension(file.FileName);
-                            path = System.IO.Path.Combine(Server.MapPath("~/Files/"), document.Name + extention);
+                            path = System.IO.Path.Combine(Server.MapPath("~/Files/"), document.name + extention);
                             file.SaveAs(path);
                             var saveQuery = session.GetNamedQuery("FileSaveProcedure");
-                            saveQuery.SetParameter("Name", document.Name)
-                            .SetParameter("authorId", document.AuthorId)
-                            .SetParameter("changedate", document.ChangeDate)
+                            saveQuery.SetParameter("Name", document.name)
+                            .SetParameter("authorId", document.authorId)
+                            .SetParameter("changedate", document.changeDate)
                             .SetParameter("BinaryFile", path).ExecuteUpdate();
 
                             return RedirectToAction("IndexAll");
@@ -84,7 +79,6 @@ namespace DocumentBase.Controllers
             }
             
         
-        //Document/Search
         public ActionResult Search(string sortOrder, string searchString)
         {
             IList<Document> documents;
@@ -98,27 +92,27 @@ namespace DocumentBase.Controllers
                
                 if (!String.IsNullOrEmpty(searchString))
                 {
-                    documents = documents.Where(s => s.Name.Contains(searchString) || s.AuthorId.ToString().Contains(searchString)).ToList();
+                    documents = documents.Where(s => s.name.Contains(searchString) || s.authorId.ToString().Contains(searchString)).ToList();
                 }
                 switch (sortOrder)
                 {
                     case "name_desc":
-                        documents = documents.OrderByDescending(s => s.Name).ToList();
+                        documents = documents.OrderByDescending(s => s.name).ToList();
                         break;
                     case "Date":
-                        documents = documents.OrderBy(s => s.ChangeDate).ToList();
+                        documents = documents.OrderBy(s => s.changeDate).ToList();
                         break;
                     case "date_desc":
-                        documents = documents.OrderByDescending(s => s.ChangeDate).ToList();
+                        documents = documents.OrderByDescending(s => s.changeDate).ToList();
                         break;
                     case "autor_desc":
-                        documents = documents.OrderByDescending(s => s.AuthorId).ToList();
+                        documents = documents.OrderByDescending(s => s.authorId).ToList();
                         break;
                     case "Autor":
-                        documents = documents.OrderBy(s => s.AuthorId).ToList();
+                        documents = documents.OrderBy(s => s.authorId).ToList();
                         break;
                     default:
-                        documents = documents.OrderBy(s => s.ChangeDate).ToList();
+                        documents = documents.OrderBy(s => s.changeDate).ToList();
                         break;
                 }
             }
@@ -133,7 +127,6 @@ namespace DocumentBase.Controllers
         }
 
        
-        // GET: Document/Delete
         public ActionResult Delete(int id)
         {           
             Document document = new Document();
@@ -147,7 +140,6 @@ namespace DocumentBase.Controllers
             return View("Edit", document);
         }
 
-        // POST: Document/Delete
         [HttpPost]
         public ActionResult Delete(long id, FormCollection collection)
         {
@@ -163,7 +155,6 @@ namespace DocumentBase.Controllers
                         trans.Commit();
                     }
                 }
-
                 return RedirectToAction("Index");
             }
             catch (Exception e)

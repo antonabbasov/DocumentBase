@@ -22,22 +22,22 @@
         <fieldset>
             <center>           
             <div class="editor-label">
-                @Html.LabelFor(a => a.Name)
+                @Html.LabelFor(a => a.name)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(a => a.Name)
-                @Html.ValidationMessageFor(a => a.Name)
+                @Html.EditorFor(a => a.name)
+                @Html.ValidationMessageFor(a => a.name)
             </div>
 
             <div class="editor-label">
-                @Html.LabelFor(a => a.ChangeDate)
+                @Html.LabelFor(a => a.changeDate)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(a => a.ChangeDate)
-                @Html.ValidationMessageFor(a => a.ChangeDate)
+                @Html.EditorFor(a => a.changeDate)
+                @Html.ValidationMessageFor(a => a.changeDate)
             </div>
             <div class="editor-label">
-                @Html.LabelFor(a => a.BinaryFile)
+                @Html.LabelFor(a => a.binaryFile)
             </div>
             <input type="file" name="fileupload" value="fileupload" id="fileupload" multiple="multiple" />
             <p>

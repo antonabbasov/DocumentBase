@@ -17,10 +17,10 @@ namespace="DocumentBase.Models">
     <id name="id" column="id" type="long">
       <generator class="native" />
     </id>
-    <property name="Login" not-null="true" />
-    <property name="Password" not-null="true"/>
-    <list name="Documents" cascade="all-delete-orphan" lazy="false">
-      <key column="AuthorId"/>
+    <property name="login" not-null="true" />
+    <property name="password" not-null="true"/>
+    <list name="documents" cascade="all-delete-orphan" lazy="false">
+      <key column="authorId"/>
       <index column="id"/>
       <one-to-many class="Document"                  
                    />

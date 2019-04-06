@@ -11,15 +11,15 @@ namespace DocumentBase.Models
         public virtual long id { get; set; }
 
         [Required(ErrorMessage="Document name is required")]     
-        public virtual string Name { get; set; }
+        public virtual string name { get; set; }
 
-        public virtual long AuthorId { get; set; }
+        public virtual long authorId { get; set; }
 
         [Required(ErrorMessage = "File is requiered")]      
-        public virtual string BinaryFile { get; set; }
+        public virtual string binaryFile { get; set; }
 
         [Required(ErrorMessage = "Date is requiered")]
         [DataType(DataType.Date)]        
-        public virtual DateTime ChangeDate { get; set; }
+        public virtual DateTime changeDate { get; set; }
     }
 }

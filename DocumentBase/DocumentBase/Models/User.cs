@@ -11,12 +11,12 @@ namespace DocumentBase.Models
         public virtual long id { get; set; }
 
         [Required]
-        public virtual string Login { get; set; }
+        public virtual string login { get; set; }
 
         [Required]
         [DataType(DataType.Password)]      
-        public virtual string Password { get; set; }
+        public virtual string password { get; set; }
 
-        public virtual IList<Document> Documents { get; set; }
+        public virtual IList<Document> documents { get; set; }
     }
 }

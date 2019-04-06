@@ -53,16 +53,16 @@
 
             <tr style="font-size:large">
                 <td >
-                    @Function(item.Name, 30)
+                    @Function(item.name, 30)
                 </td>
                 <td >
-                    @Html.DisplayFor(modelItem => item.ChangeDate)
+                    @Html.DisplayFor(modelItem => item.changeDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AuthorId)
+                    @Html.DisplayFor(modelItem => item.authorId)
                 </td>
                 <td >
-                    @Html.ActionLink("Open", "Open", new { path = item.BinaryFile }, new { @class = "btn btn-dark btn-sm" })
+                    @Html.ActionLink("Open", "Open", new { path = item.binaryFile }, new { @class = "btn btn-dark btn-sm" })
                 </td>
             </tr>
         }
