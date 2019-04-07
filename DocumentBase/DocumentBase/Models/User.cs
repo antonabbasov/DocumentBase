@@ -16,7 +16,5 @@ namespace DocumentBase.Models
         [Required]
         [DataType(DataType.Password)]      
         public virtual string password { get; set; }
-
-        public virtual IList<Document> documents { get; set; }
     }
 }

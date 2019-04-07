@@ -83,6 +83,5 @@ C:\GitHub\DocumentBase\DocumentBase\DocumentBase\bin\System.Web.WebPages.Deploym
 C:\GitHub\DocumentBase\DocumentBase\DocumentBase\bin\System.Web.WebPages.Razor.xml
 C:\GitHub\DocumentBase\DocumentBase\DocumentBase\bin\ru\System.Net.Http.resources.dll
 C:\GitHub\DocumentBase\DocumentBase\DocumentBase\bin\ru\System.Net.Http.WebRequest.resources.dll
-C:\GitHub\DocumentBase\DocumentBase\DocumentBase\obj\Debug\DocumentBase.csprojResolveAssemblyReference.cache
 C:\GitHub\DocumentBase\DocumentBase\DocumentBase\obj\Debug\DocumentBase.dll
 C:\GitHub\DocumentBase\DocumentBase\DocumentBase\obj\Debug\DocumentBase.pdb
