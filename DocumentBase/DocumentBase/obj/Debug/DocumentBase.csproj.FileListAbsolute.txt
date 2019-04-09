@@ -85,3 +85,4 @@ C:\GitHub\DocumentBase\DocumentBase\DocumentBase\bin\ru\System.Net.Http.resource
 C:\GitHub\DocumentBase\DocumentBase\DocumentBase\bin\ru\System.Net.Http.WebRequest.resources.dll
 C:\GitHub\DocumentBase\DocumentBase\DocumentBase\obj\Debug\DocumentBase.dll
 C:\GitHub\DocumentBase\DocumentBase\DocumentBase\obj\Debug\DocumentBase.pdb
+C:\GitHub\DocumentBase\DocumentBase\DocumentBase\obj\Debug\DocumentBase.csprojResolveAssemblyReference.cache

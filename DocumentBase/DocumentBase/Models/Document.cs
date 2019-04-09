@@ -15,6 +15,8 @@ namespace DocumentBase.Models
 
         public virtual long authorId { get; set; }
 
+        public virtual User author { get; set; }
+
         [Required(ErrorMessage = "File is requiered")]      
         public virtual string binaryFile { get; set; }
 

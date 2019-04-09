@@ -10,5 +10,6 @@ namespace="DocumentBase.Models">
     <property name="name" not-null="true" />
     <property name="binaryFile" not-null="true" />
     <property name="changeDate" not-null="true" />
+    <many-to-one name="author" class="User" column="authorId" cascade="none" />
   </class>
 </hibernate-mapping>

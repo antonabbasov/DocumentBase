@@ -30,14 +30,15 @@ namespace DocumentBase.Controllers
                 
                 using (ISession session = NhibernateSession.OpenSession())
                 {                  
-                    user = session.Query<User>().Where(a => a.login.Equals(objUser.login) && a.password.Equals(objUser.password)).FirstOrDefault();                    
+                    user = session.Query<User>().Where(a => a.login.Equals(objUser.login) && a.password.Equals(objUser.password)).FirstOrDefault();
+                  
                     if (user != null)
                     {
                         Session["id"] = user.id.ToString();
                         Session["Login"] = user.login.ToString();                      
                         ViewBag.Message = user;
-
-                        return RedirectToAction("UserDashBoard", user);
+                        Session["documents"] = user.Documents;
+                        return RedirectToAction("UserDashBoard"/*, user*/);
                     }
                 }
             }

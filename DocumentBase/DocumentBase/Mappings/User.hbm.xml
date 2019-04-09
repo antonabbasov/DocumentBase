@@ -8,5 +8,15 @@ namespace="DocumentBase.Models">
     </id>
     <property name="login" not-null="true" />
     <property name="password" not-null="true"/>
+    <!--<list name="Documents" cascade="all-delete-orphan" lazy="false">
+      <key column="authorId"/>
+      <index column="id"/>
+      <one-to-many class="Document"                                    />
+    </list>-->
+    <bag name="Documents" table="Document" lazy="false"
+     cascade="all" inverse="true" >
+      <key column="authorId" />
+      <one-to-many class="Document"/>
+    </bag>
   </class>
 </hibernate-mapping>

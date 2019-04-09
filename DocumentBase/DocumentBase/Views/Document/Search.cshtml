@@ -59,7 +59,7 @@
                     @Html.DisplayFor(modelItem => item.changeDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.authorId)
+                    @Html.DisplayFor(modelItem => item.author.login)
                 </td>
                 <td >
                     @Html.ActionLink("Open", "Open", new { path = item.binaryFile }, new { @class = "btn btn-dark btn-sm" })

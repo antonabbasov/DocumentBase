@@ -19,28 +19,36 @@ namespace DocumentBase.Controllers
     {      
         public ActionResult IndexAll()
         {
-            IList<Document> documents;
-
+            
             using (ISession session = NhibernateSession.OpenSession())  
             {
-                documents = session.Query<Document>().ToList();             
+                IList<Document> documents;             
+                IList<User> users ;
+
+                documents = session.Query<Document>().ToList();
+                users = session.Query<User>().ToList();    
+                          
+                return View(documents);
             }
 
-            return View(documents);
+            
         }
 
         public ActionResult Index()
-        {         
-            IList<Document> documents;
-            User user= new User();
-            user.id = long.Parse(Session["id"].ToString());
-
+        {
             using (ISession session = NhibernateSession.OpenSession())
             {
-                documents = session.Query<Document>().Where(a => a.authorId == user.id).ToList();
-            }
+                IList<Document> documents;
+                User user = new User();
 
-            return View(documents);
+                user.id = long.Parse(Session["id"].ToString());
+                user.login = Session["Login"].ToString();    
+                         
+                documents = session.Query<Document>().Where(a => a.author.id == user.id).ToList();
+                user.Documents = documents;
+
+                return View(documents);
+            }                     
         }
        
         public ActionResult Create()
@@ -81,11 +89,14 @@ namespace DocumentBase.Controllers
         
         public ActionResult Search(string sortOrder, string searchString)
         {
-            IList<Document> documents;
-
             using (ISession session = NhibernateSession.OpenSession())
-            {               
+            {
+                IList<Document> documents;
+                IList<User> users;
+              
+                users = session.Query<User>().ToList();
                 documents = session.Query<Document>().ToList();
+
                 ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
                 ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
                 ViewBag.AutorSortParm = sortOrder == "Autor" ? "autor_desc" : "Autor";
@@ -106,17 +117,17 @@ namespace DocumentBase.Controllers
                         documents = documents.OrderByDescending(s => s.changeDate).ToList();
                         break;
                     case "autor_desc":
-                        documents = documents.OrderByDescending(s => s.authorId).ToList();
+                        documents = documents.OrderByDescending(s => s.author.login).ToList();
                         break;
                     case "Autor":
-                        documents = documents.OrderBy(s => s.authorId).ToList();
+                        documents = documents.OrderBy(s => s.author.login).ToList();
                         break;
                     default:
                         documents = documents.OrderBy(s => s.changeDate).ToList();
                         break;
                 }
-            }
-            return View(documents);
+                return View(documents);
+            }        
         }
 
         public ActionResult Open(string path)

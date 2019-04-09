@@ -17,12 +17,11 @@ namespace DocumentBase
             var userConfigurationFile = HttpContext.Current.Server.MapPath(@"~\Mappings\User.hbm.xml");
             var userConfigurationFileDoc = HttpContext.Current.Server.MapPath(@"~\Mappings\Document.hbm.xml");
             var userConfigurationFileSP = HttpContext.Current.Server.MapPath(@"~\Mappings\StoreProcedure.hbm.xml");
-            configuration.AddFile(userConfigurationFile);
-            configuration.AddFile(userConfigurationFileSP);
-            configuration.AddFile(userConfigurationFileDoc);
-            ISessionFactory sessionFactory = configuration.BuildSessionFactory();
+            configuration.AddFile(userConfigurationFile)
+                         .AddFile(userConfigurationFileSP)
+                         .AddFile(userConfigurationFileDoc);
 
-            return sessionFactory.OpenSession();
+            return configuration.BuildSessionFactory().OpenSession();
         }
     }
 }
