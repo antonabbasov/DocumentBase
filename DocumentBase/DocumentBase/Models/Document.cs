@@ -6,8 +6,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DocumentBase.Models
 {
+    /// <summary>
+    /// Модель данных документа
+    /// </summary>
     public class Document
     {
+        
         public virtual long id { get; set; }
 
         [Required(ErrorMessage="Document name is required")]     

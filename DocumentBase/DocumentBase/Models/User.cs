@@ -6,6 +6,9 @@ using System.Web;
 
 namespace DocumentBase.Models
 {
+    /// <summary>
+    /// Модель данных пользователя
+    /// </summary>
     public class User
     {
         public virtual long id { get; set; }

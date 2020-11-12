@@ -7,6 +7,9 @@ using NHibernate.Cfg;
 
 namespace DocumentBase
 {
+    /// <summary>
+    /// Класс по подключению к бд и маппированию данных в бд с моделями в классах
+    /// </summary>
     public class NhibernateSession
     {
         public static ISession OpenSession()

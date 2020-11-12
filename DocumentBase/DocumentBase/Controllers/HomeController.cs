@@ -18,12 +18,12 @@ namespace DocumentBase.Controllers
     {
         public ActionResult Index()
         {           
-            //using (ISession session = NhibernateSession.OpenSession())
-            //{
-            //    string scriptSql = System.IO.File.ReadAllText("H:\\DocumentBase\\SqlScript.sql");
-            //    var query = session.CreateSQLQuery(scriptSql);
-            //    query.ExecuteUpdate();
-            //}
+            using (ISession session = NhibernateSession.OpenSession())
+            {
+                string scriptSql = System.IO.File.ReadAllText("H:\\DocumentBase\\SqlScript.sql");
+                var query = session.CreateSQLQuery(scriptSql);
+                query.ExecuteUpdate();
+            }
                           
             return View();
         }

@@ -13,6 +13,9 @@ using NHibernate;
 
 namespace DocumentBase.Controllers
 {
+    /// <summary>
+    /// Класс для авторизации пользователей
+    /// </summary>
     public class LoginController : Controller
     {
         public ActionResult Login()
